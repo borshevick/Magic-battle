@@ -9,7 +9,7 @@ class Ball():
         self.xy = xy
         self.picture = picture
         self.hitbox = pg.Rect(xy, self.picture.get_size())
-        self.hitbox2 = pg.Rect(xy,[70, 150])
+        self.hitbox2 = pg.Rect(xy,[40, 120])
         self.chance = random.randint(0, 1)
         self.charge = charge
     def draw(self, screen):

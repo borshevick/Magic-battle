@@ -7,6 +7,7 @@ pg.init()
 
 class Player():
     def __init__(self, game):
+        self.pictures = game.player_1
         self.idle_list_right= []
         self.idle_list_left = []
         self.walk_list_right = []
@@ -23,7 +24,7 @@ class Player():
         self.hitbox = pg.rect.Rect([100, 50], [player_width, player_high]) 
         self.hitbox2 = pg.rect.Rect([100, 50], [player_width//1.5, player_high//1.5]) 
         self.game = game
-        self.ball = load_image('images/earth monk/magicball.png', self.hitbox.width, self.hitbox.height//3)
+        self.ball = load_image('images/'+self.pictures+'/magicball.png', self.hitbox.width, self.hitbox.height//3)
         self.ball_left = pg.transform.flip(self.ball, True, False)
         self.kadr = 0
         self.timer = 0
@@ -40,31 +41,31 @@ class Player():
 
     def load(self):
         for i in range(1, 4):
-            picture = load_image("images/earth monk/idle"+str(i)+".png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/idle"+str(i)+".png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.idle_list_left.append(picture_left)
                 self.idle_list_right.append(picture)
         for i in range(1, 5):
-            picture = load_image("images/earth monk/move"+str(i)+".png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/move"+str(i)+".png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.walk_list_left.append(picture_left)
                 self.walk_list_right.append(picture)
         for i in range(1, 2):
-            picture = load_image("images/earth monk/down.png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/down.png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.down_list_left.append(picture_left)
                 self.down_list_right.append(picture)
         for i in range(1, 2):
-            picture = load_image("images/earth monk/charge.png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/charge.png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.charge_list_left.append(picture_left)
                 self.charge_list_right.append(picture)
         for i in range(1, 2):
-            picture = load_image("images/earth monk/attack.png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/attack.png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.attack_list_left.append(picture_left)
@@ -160,6 +161,7 @@ class Player():
        
 class Player2():
     def __init__(self, game):
+        self.pictures = game.player_2
         self.idle_list_right= []
         self.idle_list_left = []
         self.walk_list_right = []
@@ -176,7 +178,7 @@ class Player2():
         self.hitbox = pg.rect.Rect([600, 50], [player_width, player_high]) 
         self.hitbox2 = pg.rect.Rect([100, 50], [player_width//1.5, player_high//1.5]) 
         self.game = game
-        self.ball = load_image('images/earth monk/magicball.png', self.hitbox.width, self.hitbox.height//3)
+        self.ball = load_image('images/'+self.pictures+'/magicball.png', self.hitbox.width, self.hitbox.height//3)
         self.ball_left = pg.transform.flip(self.ball, True, False)
         self.kadr = 0
         self.timer = 0
@@ -193,31 +195,31 @@ class Player2():
 
     def load(self):
         for i in range(1, 4):
-            picture = load_image("images/earth monk/idle"+str(i)+".png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/idle"+str(i)+".png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.idle_list_left.append(picture_left)
                 self.idle_list_right.append(picture)
         for i in range(1, 5):
-            picture = load_image("images/earth monk/move"+str(i)+".png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/move"+str(i)+".png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.walk_list_left.append(picture_left)
                 self.walk_list_right.append(picture)
         for i in range(1, 2):
-            picture = load_image("images/earth monk/down.png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/down.png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.down_list_left.append(picture_left)
                 self.down_list_right.append(picture)
         for i in range(1, 2):
-            picture = load_image("images/earth monk/charge.png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/charge.png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.charge_list_left.append(picture_left)
                 self.charge_list_right.append(picture)
         for i in range(1, 2):
-            picture = load_image("images/earth monk/attack.png", player_width, player_high)
+            picture = load_image("images/"+self.pictures+"/attack.png", player_width, player_high)
             picture_left = pg.transform.flip(picture, True, False)
             for i in range(1, 13):
                 self.attack_list_left.append(picture_left)

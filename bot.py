@@ -33,13 +33,14 @@ class Bot():
         self.actual_picture = self.actual_animation[0]
         self.charge = 0
         self.attack = False
-        self.attack_time = 0
+        self.attack_time = pg.time.get_ticks()
         self.r = 255
         self.g = 0
         self.hp = 100
         self.font = pgtype.Font("images/Acumin Pro (RUS by Slavchansky)/Acumin-ItPro_RUS.ttf", 20)
         self.walk = False
         self.distance = 0 
+        
 
 
     def load(self):

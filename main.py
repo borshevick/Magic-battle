@@ -10,23 +10,30 @@ pg.init()
 
 
 class Game:
-    def __init__(self):
+    def __init__(self, mode, player_1, player_2):
 
         # Создание окна
+        self.game_while = True
         self.screen = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pg.display.set_caption("Битва магов")
-        self.player = player.Player(self)
-        self.player2 = bot.Bot(self)
         self.game_over = False
         self.text = ""
         self.font = pgtype.Font("images/Acumin Pro (RUS by Slavchansky)/Acumin-ItPro_RUS.ttf", 20)
         self.background = load_image("images/background.png", SCREEN_WIDTH, SCREEN_HEIGHT)
+        self.mode = mode
+        self.player_1 = player_1
+        self.player_2 = player_2
+        self.player = player.Player(self)
+        if self.mode == 2:
+            self.player2 = player.Player2(self)
+        else: 
+            self.player2 = bot.Bot(self)
 
         self.clock = pg.time.Clock()
         self.run()
 
     def run(self):
-        while True:
+        while self.game_while == True:
             self.event()
             self.update()
             self.draw()
@@ -35,8 +42,12 @@ class Game:
     def event(self):
         for event in pg.event.get():
             if event.type == pg.QUIT:
-                quit()
-
+                if event.type == pg.QUIT:
+                    pg.quit()
+                    exit()
+            if event.type==pg.KEYDOWN:
+                if event.key == pg.K_ESCAPE and self.game_over == True:
+                    self.game_while = False
     def update(self):
         if self.game_over == False:
             self.player.update()
